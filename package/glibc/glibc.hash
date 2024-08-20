@@ -1,2 +1,5 @@
 # This hash file is not used; instead, update the
 # hash files in the per-version sub-directories.
+#
+sha512 c12c0b9da4321f62b37198fffb92ef88c34793744e4d7b7227a9b916d4d6cb3d977c3425a5f6884b1474c296e2d2acd3c04e983187beb5cc9da456e2f5b3b4c1  glibc-2.31.tar.gz
+

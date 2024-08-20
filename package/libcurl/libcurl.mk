@@ -128,9 +128,9 @@ endif
 
 ifeq ($(BR2_PACKAGE_LIBGSASL),y)
 LIBCURL_DEPENDENCIES += libgsasl
-LIBCURL_CONF_OPTS += --with-libgsasl
+LIBCURL_CONF_OPTS += --with-gsasl
 else
-LIBCURL_CONF_OPTS += --without-libgsasl
+LIBCURL_CONF_OPTS += --without-gsasl
 endif
 
 ifeq ($(BR2_PACKAGE_LIBCURL_COOKIES_SUPPORT),y)

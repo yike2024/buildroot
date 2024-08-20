@@ -40,8 +40,8 @@ else
 CASYNC_CONF_OPTS += -Dudev=false
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
-CASYNC_DEPENDENCIES += zstd
+ifeq ($(BR2_PACKAGE_LIBZSTD),y)
+CASYNC_DEPENDENCIES += libzstd
 CASYNC_CONF_OPTS += -Dlibzstd=enabled
 else
 CASYNC_CONF_OPTS += -Dlibzstd=disabled

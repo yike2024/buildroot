@@ -8,7 +8,8 @@
 # Version, site and source
 #
 
-GCC_VERSION = $(call qstrip,$(BR2_GCC_VERSION))
+# GCC_VERSION = $(call qstrip,$(BR2_GCC_VERSION))
+GCC_VERSION = 9.3.0
 
 ifeq ($(BR2_GCC_VERSION_ARC),y)
 GCC_SITE = $(call github,foss-for-synopsys-dwc-arc-processors,gcc,$(GCC_VERSION))
@@ -72,15 +73,18 @@ HOST_GCC_COMMON_CONF_OPTS = \
 	--with-sysroot=$(STAGING_DIR) \
 	--enable-__cxa_atexit \
 	--with-gnu-ld \
-	--disable-libssp \
-	--disable-multilib \
-	--disable-decimal-float \
 	--with-gmp=$(HOST_DIR) \
 	--with-mpc=$(HOST_DIR) \
 	--with-mpfr=$(HOST_DIR) \
 	--with-pkgversion="Buildroot $(BR2_VERSION_FULL)" \
 	--with-bugurl="http://bugs.buildroot.net/" \
-	--without-zstd
+	--enable-libssp \
+	--enable-multilib \
+	--enable-decimal-float \
+	# --without-zstd	\
+	# --disable-libssp \
+	# --disable-multilib \
+	# --disable-decimal-float \
 
 # Don't build documentation. It takes up extra space / build time,
 # and sometimes needs specific makeinfo versions to work
@@ -283,7 +287,7 @@ HOST_GCC_COMMON_CCACHE_HASH_FILES += \
 		$(addsuffix /gcc/$(GCC_VERSION)/*.patch,$(call qstrip,$(BR2_GLOBAL_PATCH_DIR))) \
 		$(addsuffix /gcc/*.patch,$(call qstrip,$(BR2_GLOBAL_PATCH_DIR)))))
 ifeq ($(BR2_xtensa),y)
-HOST_GCC_COMMON_CCACHE_HASH_FILES += $(ARCH_XTENSA_OVERLAY_FILE)
+HOST_GCC_COMMON_CCACHE_HASH_FILES += $(ARCH_XTENSA_OVERLAY_TAR)
 endif
 
 # _CONF_OPTS contains some references to the absolute path of $(HOST_DIR)

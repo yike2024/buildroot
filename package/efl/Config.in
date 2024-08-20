@@ -21,7 +21,7 @@ config BR2_PACKAGE_EFL
 	help
 	  Enlightenment Foundation Libraries
 
-	  https://www.enlightenment.org/
+	  https://enlightenment.org
 
 if BR2_PACKAGE_EFL
 
